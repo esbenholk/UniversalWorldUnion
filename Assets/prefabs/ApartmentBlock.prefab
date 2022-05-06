@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6217895998083088270}
   - component: {fileID: 6217895998083088269}
   - component: {fileID: 1807412999515029215}
+  - component: {fileID: 7864192911595906367}
+  - component: {fileID: 8826621170081221037}
   m_Layer: 0
   m_Name: ApartmentBlock
   m_TagString: Untagged
@@ -45,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabApartmentCelle: {fileID: 6805096301038778514, guid: 9cef33c859043384abfcf06c691e21c9, type: 3}
+  EdgeMarker: {fileID: 0}
   amountInXAxis: 5
   amountInZAxis: 5
   amountInYAxisMin: 3
@@ -61,6 +64,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83070436ee9bb26489654512f74b8fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveKey: 32
+  saveKey: 13
   saveName: 
   selectedGameObject: {fileID: 0}
+--- !u!33 &7864192911595906367
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6217895998083088268}
+  m_Mesh: {fileID: 0}
+--- !u!23 &8826621170081221037
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6217895998083088268}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}

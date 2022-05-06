@@ -104,7 +104,7 @@ public class block_builder : MonoBehaviour
         for (float zeta = 1f; zeta <= height; zeta++)
         {
 
-            int shouldInstantiate = Random.Range(1, 2);
+            int shouldInstantiate = Random.Range(1, 3);
 
             GameObject goY = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, (float)zeta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.y, goX.transform.position.z), Quaternion.identity, goX.transform);
             ApartmentCellesOnYAxis[(int)zeta] = goY;
