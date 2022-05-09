@@ -7,6 +7,7 @@ public class block_builder : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject PrefabApartmentCelle;
+    public GameObject PrefabApartmentCelleWithPlatform;
     public Material EdgeMarker;
 
     private GameObject[] ApartmentCellesOnXAxis;
@@ -65,23 +66,24 @@ public class block_builder : MonoBehaviour
         for (float beta = 1f; beta <= this.amountInZAxis-1; beta++)
         {
             int shouldInstantiate = Random.Range(0, 10);
+
             GameObject goZ = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)beta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
-            ApartmentCellesOnZAxis[(int)beta] = goZ;
 
-            //if (index == amountInZAxis && shouldInstantiate >= 2)
-            //{
-            //    //goZ.GetComponent<Renderer>().material = EdgeMarker;
-            //    Debug.Log("DESTROZS CELLE" + index + goZ);
-            //    goZ.gameObject.SetActive(false);
-            //    Destroy(goZ);
-
-            //}
+            if (index == amountInZAxis)
+            {
+                goZ = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)beta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
+            }
+            else
+            {
+                goZ = (GameObject)Instantiate(this.PrefabApartmentCelleWithPlatform, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)beta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
+            }
 
 
             //if (index == amountInZAxis)
             //{
             //    goZ.GetComponent<Renderer>().material = EdgeMarker;
             //}
+            ApartmentCellesOnZAxis[(int)beta] = goZ;
 
             StartCoroutine(InstantiatePrefabInYDirection(goZ, beta));
 
@@ -115,6 +117,15 @@ public class block_builder : MonoBehaviour
                 Debug.Log("DESTROZS CELLE" + index + goY);
                 goY.gameObject.SetActive(false);
                 Destroy(goY);
+            }
+
+            if (index == amountInZAxis && shouldInstantiate >= 2)
+            {
+                goY = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)zeta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
+            }
+            else
+            {
+                goY = (GameObject)Instantiate(this.PrefabApartmentCelleWithPlatform, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)zeta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
             }
 
 
