@@ -6,9 +6,10 @@ public class block_builder : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject PrefabApartmentCelle;
-    public GameObject PrefabApartmentCelleWithPlatform;
-    public Material EdgeMarker;
+    public GameObject[] PrefabApartmentCelles;
+
+    public bool shouldRotate;
+    private int[] rotations = new int[] { 90, 0, 180, 270 };
 
     private GameObject[] ApartmentCellesOnXAxis;
     private GameObject[] ApartmentCellesOnZAxis;
@@ -31,6 +32,11 @@ public class block_builder : MonoBehaviour
 
     }
 
+
+    public GameObject getRandomItem()
+    {
+        return PrefabApartmentCelles[Random.Range(0, PrefabApartmentCelles.Length)];
+    }
     public IEnumerator InstantiatePrefabInXDirection()
     {
         ApartmentCellesOnXAxis = new GameObject[amountInXAxis+1];
@@ -39,11 +45,19 @@ public class block_builder : MonoBehaviour
 
         for (float alpha = 1f; alpha <= this.amountInXAxis ; alpha++)
         {
-            GameObject goX = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(this.transform.position.x + (float) alpha * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.x, 1, 0), Quaternion.identity, this.transform);
+            GameObject prefab = this.getRandomItem();
+            GameObject goX = (GameObject)Instantiate(prefab, new Vector3(this.transform.position.x + (float) alpha * (float)prefab.GetComponent<Renderer>().bounds.size.x, 1, 0), Quaternion.identity, this.transform);
        
             ApartmentCellesOnXAxis[(int)alpha] = goX;
 
- 
+            //if (this.shouldRotate)
+            //{
+            //    int index = Random.Range(0, rotations.Length);
+            //    int selectedRotation = rotations[index];
+            //    goX.transform.Rotate(0, 0, selectedRotation);
+            //}
+
+
             StartCoroutine(InstantiatePrefabInZDirection(goX, alpha));
             StartCoroutine(InstantiatePrefabInYDirection(goX, alpha));
 
@@ -65,25 +79,17 @@ public class block_builder : MonoBehaviour
 
         for (float beta = 1f; beta <= this.amountInZAxis-1; beta++)
         {
-            int shouldInstantiate = Random.Range(0, 10);
+            GameObject prefab = this.getRandomItem();
+            GameObject goZ = (GameObject)Instantiate(prefab, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)beta * (float)prefab.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
 
-            GameObject goZ = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)beta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
-
-            if (index == amountInZAxis)
-            {
-                goZ = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)beta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
-            }
-            else
-            {
-                goZ = (GameObject)Instantiate(this.PrefabApartmentCelleWithPlatform, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)beta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
-            }
-
-
-            //if (index == amountInZAxis)
-            //{
-            //    goZ.GetComponent<Renderer>().material = EdgeMarker;
-            //}
             ApartmentCellesOnZAxis[(int)beta] = goZ;
+
+            //if (this.shouldRotate)
+            //{
+            //    int index0 = Random.Range(0, rotations.Length);
+            //    int selectedRotation = rotations[index0];
+            //    goZ.transform.Rotate(0, 0, selectedRotation);
+            //}
 
             StartCoroutine(InstantiatePrefabInYDirection(goZ, beta));
 
@@ -105,28 +111,26 @@ public class block_builder : MonoBehaviour
 
         for (float zeta = 1f; zeta <= height; zeta++)
         {
-
+            GameObject prefab = this.getRandomItem();
             int shouldInstantiate = Random.Range(1, 3);
 
-            GameObject goY = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, (float)zeta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.y, goX.transform.position.z), Quaternion.identity, goX.transform);
+            GameObject goY = (GameObject)Instantiate(prefab, new Vector3(goX.transform.position.x, (float)zeta * (float)prefab.GetComponent<Renderer>().bounds.size.y + goX.transform.position.y, goX.transform.position.z), Quaternion.identity, goX.transform);
             ApartmentCellesOnYAxis[(int)zeta] = goY;
 
             if (index == amountInZAxis && shouldInstantiate > 1)
             {
-                goY.GetComponent<Renderer>().material = EdgeMarker;
-                Debug.Log("DESTROZS CELLE" + index + goY);
                 goY.gameObject.SetActive(false);
                 Destroy(goY);
             }
 
-            if (index == amountInZAxis && shouldInstantiate >= 2)
+            if (this.shouldRotate)
             {
-                goY = (GameObject)Instantiate(this.PrefabApartmentCelle, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)zeta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
+                int index0 = Random.Range(0, rotations.Length);
+                int selectedRotation = rotations[index0];
+                goY.transform.Rotate(0,  selectedRotation, 0);
             }
-            else
-            {
-                goY = (GameObject)Instantiate(this.PrefabApartmentCelleWithPlatform, new Vector3(goX.transform.position.x, goX.transform.position.y, (float)zeta * (float)this.PrefabApartmentCelle.GetComponent<Renderer>().bounds.size.z), Quaternion.identity, goX.transform);
-            }
+
+
 
 
 
