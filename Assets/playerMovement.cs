@@ -101,13 +101,13 @@ public class playerMovement : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.LeftShift))
 			{
-				speed =  run_speed;
+				//speed =  run_speed;
 				playerAnim.SetTrigger("run");
 				playerAnim.ResetTrigger("walk");
 			}
 			if (Input.GetKeyUp(KeyCode.LeftShift))
 			{
-				speed = temp_speed;
+				//speed = temp_speed;
 				playerAnim.ResetTrigger("run");
 				playerAnim.SetTrigger("walk");
 			}
