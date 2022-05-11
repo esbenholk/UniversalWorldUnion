@@ -1,0 +1,34 @@
+# Blender MTL File: 'small-lamp.blend'
+# Material Count: 2
+
+newmtl lantern
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Normal.jpg
+map_Kd C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_BaseColor.jpg
+map_Ke C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Emissive_uwu.png
+map_Ns C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Roughness.jpg
+map_d C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Opacity.jpg
+refl C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Metallic.jpg
+
+newmtl lantern.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Normal.jpg
+map_Kd C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_BaseColor.jpg
+map_Ke C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Emissive.png
+map_Ns C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Roughness.jpg
+map_d C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Opacity.jpg
+refl C:\\Users\\johan\\Documents\\GitHub\\UniversalWorldUnion\\Assets\\BlenderModels\\mavic-the-lantern-in-between\\textures\\tools_12_lantern_3_low_lantern_Metallic.jpg

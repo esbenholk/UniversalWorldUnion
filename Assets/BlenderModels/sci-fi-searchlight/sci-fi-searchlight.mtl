@@ -1,0 +1,16 @@
+# Blender MTL File: 'sci-fi-searchlight.blend'
+# Material Count: 1
+
+newmtl blinn1SG
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd sci_fi_searchligh_BaseColor_uwu.png
+map_Ke sci_fi_searchligh_Emitters.png
+map_Ks sci_fi_searchligh_Specular.png
+map_Ns sci_fi_searchligh_Roughness.png
